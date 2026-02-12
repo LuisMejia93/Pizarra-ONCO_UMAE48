@@ -59,13 +59,13 @@ df = load_data()
 # --- INTERFAZ ---
 if not df.empty:
     
-    # 1. CÁLCULOS DE CAMAS (620 - 642)
+    # 1. CÁLCULOS DE CAMAS (621 - 642)
     total_pacientes = len(df)
     hem_count = len(df[df['ESP'].str.contains('HEM', case=False, na=False)])
     onc_count = len(df[df['ESP'].str.contains('ONC', case=False, na=False)])
     
     # Lógica de camas vacías
-    rango_camas = set(range(620, 643)) 
+    rango_camas = set(range(621, 643)) 
     camas_ocupadas = set(df['CAMA'].dropna().astype(int).unique())
     camas_libres = sorted(list(rango_camas - camas_ocupadas))
     
@@ -150,4 +150,5 @@ if not df.empty:
             st.warning("No se encontró columna MEDICO")
 
 else:
+
     st.warning("No hay datos para mostrar.")
