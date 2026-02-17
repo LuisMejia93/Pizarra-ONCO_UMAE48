@@ -109,7 +109,7 @@ if not df.empty:
             return [f'background-color: {bg_color}; color: black' for _ in row]
 
         # Columnas a mostrar
-        cols = [c for c in ['CAMA', 'ESP', 'PACIENTE', 'NSS', 'MEDICO', 'ESTANCIA', 'MOTIVO'] if c in df.columns]
+        cols = [c for c in ['CAMA', 'ESP', 'PACIENTE', 'NSS', 'MEDICO', 'ESTANCIA','EVAT', 'MOTIVO'] if c in df.columns]
         
         # Ordenar por número de cama
         df_sorted = df.sort_values(by='CAMA')
@@ -152,3 +152,4 @@ if not df.empty:
 else:
 
     st.warning("No hay datos para mostrar.")
+
