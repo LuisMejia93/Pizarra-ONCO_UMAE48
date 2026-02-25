@@ -97,19 +97,22 @@ if not df.empty:
         # Función de estilo SIMPLIFICADA (Solo fondo, texto normal)
         def estilo_simple(row):
             # Detectar Especialidad para el color de FONDO
-            esp = str(row.get('ESP', '')).upper()
+            esp = str(row.get('EVAT', '')).upper()
             bg_color = 'white' # Default
             
-            if 'HEM' in esp:
+            if 'VERDE' in esp:
                 bg_color = '#e3f2fd'  # Azul suave
-            elif 'ONC' in esp:
+            elif 'ROJO' in esp:
                 bg_color = '#fce4ec'  # Rosa suave
-            
+
+            elif 'AMARILLO' in esp:
+                bg_color = '#fffde7'  # Amarillo crema suave
+
             # Texto siempre negro (ya no cambia por días de estancia)
             return [f'background-color: {bg_color}; color: black' for _ in row]
 
         # Columnas a mostrar
-        cols = [c for c in ['CAMA', 'ESP', 'PACIENTE', 'NSS', 'MEDICO', 'ESTANCIA','EVAT', 'MOTIVO'] if c in df.columns]
+        cols = [c for c in ['CAMA', 'ESP', 'PACIENTE', 'EVAT','MOTIVO','ESTANCIA', 'MEDICO'] if c in df.columns]
         
         # Ordenar por número de cama
         df_sorted = df.sort_values(by='CAMA')
@@ -152,4 +155,5 @@ if not df.empty:
 else:
 
     st.warning("No hay datos para mostrar.")
+
 
