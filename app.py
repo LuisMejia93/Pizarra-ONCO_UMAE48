@@ -101,7 +101,7 @@ if not df.empty:
             bg_color = 'white' # Default
             
             if 'VERDE' in esp:
-                bg_color = '#e3f2fd'  # Azul suave
+                bg_color = '#e8f5e9'  # Verde menta
             elif 'ROJO' in esp:
                 bg_color = '#fce4ec'  # Rosa suave
 
@@ -155,5 +155,6 @@ if not df.empty:
 else:
 
     st.warning("No hay datos para mostrar.")
+
 
 
